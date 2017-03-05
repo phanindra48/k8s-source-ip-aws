@@ -110,4 +110,10 @@ kubectl annotate service --namespace=nginx-ingress nginx-ingress service.beta.ku
  ```
  curl http://something.your.domain.com/test
  ```
- check for `x-real-ip` field in the response
+ check for `x-real-ip` field in the response (its a private ip)
+
+
+## Clean up
+```
+kops delete cluster $NAME --yes
+```
