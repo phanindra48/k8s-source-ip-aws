@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    name: source-ip
+  name: source-ip-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: source-ip
+  template:
+    metadata:
+      labels:
+        name: source-ip
+    spec:
+      containers:
+      - image: gcr.io/google_containers/echoserver:1.4
+        name: source-ip
