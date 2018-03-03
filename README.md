@@ -1,8 +1,13 @@
 # k8s-source-ip-aws
-Minimalistic kubernetes cluster to replicate source ip issue in aws cloud provider
+Minimalistic kubernetes cluster to get source ip in aws cloud provider
 
-kops `Version 1.5.1`
-kubernetes `1.5.2`
+kops `Version 1.7.1`
+
+kubernetes 
+```
+Client Version: version.Info{Major:"1", Minor:"8", GitVersion:"v1.8.3", GitCommit:"f0efb3cb883751c5ffdbe6d515f3cb4fbe7b7acd", GitTreeState:"clean", BuildDate:"2017-11-09T07:26:38Z", GoVersion:"go1.9.2", Compiler:"gc", Platform:"darwin/amd64"}
+Server Version: version.Info{Major:"1", Minor:"7", GitVersion:"v1.7.11", GitCommit:"b13f2fd682d56eab7a6a2b5a1cab1a3d2c8bdd55", GitTreeState:"clean", BuildDate:"2017-11-25T17:51:39Z", GoVersion:"go1.8.3", Compiler:"gc", Platform:"linux/amd64"}
+```
 
 Please follow instructions given [here](https://github.com/kubernetes/kops/blob/master/docs/aws.md)
 
@@ -103,7 +108,7 @@ For more information checkout kubernetes [page](https://kubernetes.io/docs/tutor
 
 Annotate nginx-ingress service of type=LoadBalancer using below command
 ```
-kubectl annotate service --namespace=nginx-ingress nginx-ingress service.beta.kubernetes.io/external-traffic=OnlyLocal
+kubectl annotate service --namespace=nginx-ingress nginx-ingress service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: '*'
 ```
 
 ## Test for source ip
