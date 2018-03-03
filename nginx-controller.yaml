@@ -3,8 +3,8 @@ kind: Service
 metadata:
   name: nginx-ingress
   namespace: nginx-ingress
-  # annotations:
-  #   service.beta.kubernetes.io/external-traffic: "OnlyLocal"
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: '*'
   labels:
     app: nginx-ingress
 spec:
@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
       - name: nginx-ingress
-        image: gcr.io/google_containers/nginx-ingress-controller:0.8.3
+        image: gcr.io/google_containers/nginx-ingress-controller:0.9.0-beta.11
         imagePullPolicy: Always
         readinessProbe:
           httpGet:
@@ -62,4 +62,4 @@ spec:
         args:
         - /nginx-ingress-controller
         - --default-backend-service=$(POD_NAMESPACE)/default-http-backend
-        - --nginx-configmap=nginx-ingress/nginx
+        - --configmap=nginx-ingress/nginx
