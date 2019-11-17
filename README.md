@@ -9,12 +9,12 @@ Client Version: version.Info{Major:"1", Minor:"8", GitVersion:"v1.8.3", GitCommi
 Server Version: version.Info{Major:"1", Minor:"7", GitVersion:"v1.7.11", GitCommit:"b13f2fd682d56eab7a6a2b5a1cab1a3d2c8bdd55", GitTreeState:"clean", BuildDate:"2017-11-25T17:51:39Z", GoVersion:"go1.8.3", Compiler:"gc", Platform:"linux/amd64"}
 ```
 
-Please follow instructions given [here](https://github.com/kubernetes/kops/blob/master/docs/aws.md)
+Please follow instructions given [here](https://github.com/kubernetes/kops/blob/release-1.7/docs/aws.md)
 
 1. Install `kops`
 2. Install `kubectl`
 3. Setup AWS - You can either setup aws environment manually by following the instruction given in the docs or you can leave that to kops (I preferred `kops` taking care of that stuff)
-4. Configure [DNS](https://github.com/kubernetes/kops/blob/master/docs/aws.md#configure-dns)
+4. Configure [DNS](https://github.com/kubernetes/kops/blob/release-1.7/docs/aws.md#configure-dns)
 5. Testing your DNS setup
 ```
 dig ns subdomain.example.com
